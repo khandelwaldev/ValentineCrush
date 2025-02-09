@@ -5,6 +5,7 @@ const Home = () => {
   const [question, setQuestion] = useState("Will you be my Valentine?");
   const [noClickCount, setNoClickCount] = useState(0);
   const [showNo, setShowNo] = useState(true);
+  const [saidYes, SetSaidYes] = useState(false);
   const noMessages = [
     "Think again!",
     "If you say no, my heart might need CPR!",
@@ -22,6 +23,7 @@ const Home = () => {
   const handleYesClick = () => {
     setQuestion("I can't believe you said yes!");
     setShowNo(false);
+    SetSaidYes(true);
   };
 
   const handleNoClick = () => {
@@ -39,15 +41,15 @@ const Home = () => {
       <div className="text-center">
         <h1 className="text-3xl font-bold text-white mb-6">{question}</h1>
         <div className="space-x-4 flex w-full justify-center">
-          {showNo ? (
+          {saidYes ? (
+            ""
+          ) : (
             <button
               onClick={handleYesClick}
               className="w-[130px] h-[40px] flex items-center justify-center border-2 border-white text-white text-lg font-bold rounded-2xl"
             >
               Yes 😀
             </button>
-          ) : (
-            ""
           )}
           {showNo && (
             <button
@@ -58,11 +60,10 @@ const Home = () => {
               No 😏
             </button>
           )}
+          <button></button>
         </div>
         <div className="w-full flex flex-col items-center justify-center">
-          {showNo ? (
-            ""
-          ) : (
+          {saidYes ? (
             <>
               <img
                 src="https://media.tenor.com/QbsVdi4RPTUAAAAi/cat-cute.gif"
@@ -76,6 +77,8 @@ const Home = () => {
                 Let&apos;s Chat 😋
               </Link>
             </>
+          ) : (
+            ""
           )}
         </div>
       </div>
