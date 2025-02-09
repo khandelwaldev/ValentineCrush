@@ -1,3 +1,4 @@
+import CheckBrowser from "$dev/components/CheckBrowser";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -82,6 +83,7 @@ const Home = () => {
           )}
         </div>
       </div>
+      <CheckBrowser />
     </div>
   );
 };
